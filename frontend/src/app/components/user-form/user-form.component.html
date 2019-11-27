@@ -9,9 +9,9 @@
                id="imie"
                name="imie"
                placeholder="Wprowadź imię"
-               required #name="ngModel">
+               required #imie="ngModel">
+        <div [hidden]="!imie.pristine" class="alert alert-danger">Imię jest wymagane</div>
       </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">Imię jest wymagane</div>
 
       <div class="form-group">
         <label for="nazwisko">Nazwisko</label>
@@ -20,9 +20,9 @@
                id="nazwisko"
                name="nazwisko"
                placeholder="Wprowadź nazwisko"
-               required #name="ngModel">
+               required #nazwisko="ngModel">
+        <div [hidden]="!nazwisko.pristine" class="alert alert-danger">Nazwisko jest wymagane</div>
       </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">Nazwisko jest wymagane</div>
 
       <div class="form-group">
         <label for="wiek">Wiek</label>
@@ -31,9 +31,9 @@
                id="wiek"
                name="wiek"
                placeholder="Wprowadź wiek"
-               required #name="ngModel">
+               required #wiek="ngModel">
+        <div [hidden]="!wiek.pristine" class="alert alert-danger">Wiek jest wymagany</div>
       </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">Wiek jest wymagany</div>
 
       <div class="form-group">
         <label for="email">Email</label>
@@ -41,7 +41,7 @@
                class="form-control"
                id="email"
                name="email"
-               placeholder="Enter your email address"
+               placeholder="Wprowadź email"
                required #email="ngModel">
         <div [hidden]="!email.pristine" class="alert alert-danger">Email jest wymagany</div>
       </div>
