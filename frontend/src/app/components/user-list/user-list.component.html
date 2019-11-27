@@ -1,0 +1,28 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col" class="text-center">Wiek</th>
+        <th scope="col">Email</th>
+        <th scope="col" class="text-center">#</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td class="text-center">{{ user.id }}</td>
+        <td>{{ user.imie }}</td>
+        <td>{{ user.nazwisko }}</td>
+        <td class="text-center">{{ user.wiek }}</td>
+        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+        <td class="text-center">
+          <mat-icon class="show-cursor" (click)="delete(user)">delete</mat-icon>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

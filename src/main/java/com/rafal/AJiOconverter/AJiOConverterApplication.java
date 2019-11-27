@@ -1,12 +1,14 @@
 package com.rafal.AJiOconverter;
 
+import com.rafal.AJiOconverter.model.User;
+import com.rafal.AJiOconverter.repository.UserRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.EnableMBeanExport;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
+import org.springframework.context.annotation.*;
 import org.springframework.jmx.support.RegistrationPolicy;
+
+import java.util.stream.Stream;
 
 @SpringBootApplication
 @PropertySources({
@@ -25,4 +27,17 @@ public class AJiOConverterApplication {
         SpringApplication.run(AJiOConverterApplication.class, args);
     }
 
+    @Bean
+    CommandLineRunner init(UserRepository userRepository) {
+        return args -> {
+            Stream.of("Kowalski", "Nowak", "Małysz", "Lukmajster", "Dąbrowski").forEach(name -> {
+                User user = new User();
+                user.setImie("Adam");
+                user.setNazwisko(name);
+                user.setWiek(30);
+                user.setEmail(name + "@gmail.com");
+                userRepository.save(user);
+            });
+        };
+    }
 }

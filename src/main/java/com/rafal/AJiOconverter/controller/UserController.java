@@ -20,11 +20,16 @@ public class UserController {
 
     @GetMapping("/users")
     public List<User> getUsers() {
-        return userRepository.findAll();
+        return (List<User>) userRepository.findAll();
     }
 
     @PostMapping("/saveUser")
     public void addUser(@RequestBody User user) {
         userRepository.save(user);
+    }
+
+    @PostMapping("/deleteUser")
+    public void deleteUser(@RequestBody User user) {
+        userRepository.delete(user);
     }
 }
