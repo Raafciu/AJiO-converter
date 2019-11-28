@@ -28,6 +28,7 @@ export class UserListComponent implements OnInit {
   refreshData() {
     this.userService.findAll().subscribe(data => {
       this.ngZone.run(() => {
+        console.log(data);
         this.users = data;
       });
     });

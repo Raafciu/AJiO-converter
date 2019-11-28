@@ -15,10 +15,12 @@ export class UserService {
   }
 
   public save(user: User) {
+    console.log(user);
     return this.http.post<User>(API + SAVE_USER, user);
   }
 
   public delete(user: User) {
+    console.log(user);
     return this.http.post<User>(API + DELETE_USER, user);
   }
 }
